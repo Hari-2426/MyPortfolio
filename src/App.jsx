@@ -652,7 +652,7 @@ const Contact = () => {
 
         <SectionReveal delay={0.2}>
           <form className="glass-card" style={{ padding: '3.5rem', display: 'flex', flexDirection: 'column', gap: '2rem' }} onSubmit={(e) => { e.preventDefault(); setSent(true); setTimeout(() => setSent(false), 3000); }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 300px), 1fr))', gap: '2rem' }}>
               <div className="input-group">
                 <label style={{ display: 'block', color: 'var(--text-secondary)', marginBottom: '0.8rem', fontSize: '0.9rem', fontWeight: 700 }}>IDENTIFICATION</label>
                 <div style={{ position: 'relative' }}>
