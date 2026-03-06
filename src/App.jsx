@@ -609,104 +609,6 @@ const Achievements = () => {
   );
 };
 
-const TerminalComponent = () => {
-  const [input, setInput] = useState('');
-  const [history, setHistory] = useState([
-    { type: 'info', content: 'HHN-OS v1.0.4 - Initializing secure terminal...' },
-    { type: 'info', content: 'Type "help" to see available commands.' }
-  ]);
-  const scrollRef = useRef(null);
-
-  useEffect(() => {
-    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
-  }, [history]);
-
-  const handleCommand = (e) => {
-    if (e.key === 'Enter') {
-      const cmd = input.toLowerCase().trim();
-      const newHistory = [...history, { type: 'cmd', content: `> ${input}` }];
-
-      switch (cmd) {
-        case 'help':
-          newHistory.push({ type: 'res', content: 'Available commands: projects, skills, contact, clear, about, resume' });
-          break;
-        case 'projects':
-          newHistory.push({ type: 'res', content: '1. AgriTech Smart Farming (React/ML)\n2. Driver Management System (Java/MySQL)' });
-          break;
-        case 'skills':
-          newHistory.push({ type: 'res', content: 'Languages: Java, SQL\nWeb: React, JavaScript, Vite\nData: MySQL, JDBC' });
-          break;
-        case 'contact':
-          newHistory.push({ type: 'res', content: 'Email: vedavyas2410@gmail.com\nLinkedIn: hari-hara-nandan-cv-608240354' });
-          break;
-        case 'about':
-          newHistory.push({ type: 'res', content: 'CS Student | 8.7 CGPA | Hackathon Enthusiast | Building Future Assets.' });
-          break;
-        case 'resume':
-          newHistory.push({ type: 'res', content: 'Downloading transmission data... (Check your browser)' });
-          window.open('/Hari Hara Nandan C V.pdf', '_blank');
-          break;
-        case 'clear':
-          setHistory([{ type: 'info', content: 'Console cleared. Type "help" for commands.' }]);
-          setInput('');
-          return;
-        default:
-          newHistory.push({ type: 'res', content: `Command not found: ${cmd}. Type "help" for a list of valid commands.` });
-      }
-
-      setHistory(newHistory);
-      setInput('');
-    }
-  };
-
-  return (
-    <section id="terminal" style={{ paddingBottom: '10rem' }}>
-      <SectionHeading subtitle="Advanced">Command Interface</SectionHeading>
-      <SectionReveal>
-        <div className="glass-card" style={{
-          background: 'rgba(2, 6, 23, 0.95)',
-          border: '1px solid var(--neon-cyan)33',
-          borderRadius: '1.5rem',
-          padding: '2rem',
-          fontFamily: 'monospace',
-          boxShadow: '0 0 50px rgba(34, 211, 238, 0.1)',
-          maxWidth: '1000px',
-          margin: '0 auto'
-        }}>
-          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', opacity: 0.5 }}>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
-            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
-            <span style={{ fontSize: '0.8rem', marginLeft: '1rem' }}>hhn-os — bash — 80x24</span>
-          </div>
-
-          <div ref={scrollRef} style={{ height: '350px', overflowY: 'auto', marginBottom: '1.5rem', color: 'var(--neon-cyan)', fontSize: '1rem', lineHeight: 1.6 }}>
-            {history.map((line, i) => (
-              <div key={i} style={{
-                marginBottom: '0.5rem',
-                color: line.type === 'cmd' ? 'var(--text-primary)' : line.type === 'res' ? 'var(--neon-blue)' : 'var(--text-secondary)',
-                whiteSpace: 'pre-wrap'
-              }}>
-                {line.content}
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ color: 'var(--neon-purple)', fontWeight: 900 }}>guest@HHN:~$</span>
-            <input
-              autoFocus
-              value={input}
-              onChange={(e) => setInput(e.target.value)}
-              onKeyDown={handleCommand}
-              style={{ flex: 1, background: 'transparent', border: 'none', color: 'var(--neon-cyan)', fontFamily: 'monospace', outline: 'none', fontSize: '1.1rem' }}
-            />
-          </div>
-        </div>
-      </SectionReveal>
-    </section>
-  );
-};
 
 const Contact = () => {
   const [sent, setSent] = useState(false);
@@ -816,7 +718,7 @@ export default function App() {
             <Skills />
             <Projects />
             <Achievements />
-            <TerminalComponent />
+
             <Contact />
           </main>
 
