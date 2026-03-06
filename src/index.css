@@ -40,92 +40,97 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* --- Layout Components --- */
+/* --- Responsive Design System --- */
 
+:root {
+  --section-padding: clamp(60px, 10vw, 120px) clamp(1.5rem, 5vw, 2rem);
+  --container-max-width: 1400px;
+}
+
+/* Fluid Typography */
+h1 {
+  font-size: clamp(2.5rem, 8vw, 6.5rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 4.5rem);
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+p {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+}
+
+@media (max-width: 1280px) {
+  section {
+    max-width: 1100px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .grid-responsive {
+    grid-template-columns: 1fr !important;
+    gap: 3rem !important;
+  }
+
+  .hero-grid {
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none !important;
+  }
+
+  .hero-artwork {
+    display: none !important;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .glass-card {
+    padding: 1.5rem !important;
+  }
+}
+
+.about-stats {
+  display: flex;
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 480px) {
+  .about-stats {
+    flex-direction: column;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Base Components with Responsiveness */
 section {
   padding: var(--section-padding);
-  max-width: 1300px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
   position: relative;
   overflow: hidden;
 }
-
-/* --- Responsive Layout Utilities --- */
 
 .grid-responsive {
   display: grid;
   grid-template-columns: var(--grid-cols, 1fr 1fr);
   gap: var(--grid-gap, 4rem);
   align-items: center;
-}
-
-@media (max-width: 1024px) {
-  :root {
-    --section-padding: 100px 2rem;
-  }
-
-  .grid-responsive {
-    grid-template-columns: 1fr;
-    gap: 3rem;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --section-padding: 80px 1.5rem;
-  }
-
-  h1 {
-    font-size: 3rem !important;
-  }
-
-  h2 {
-    font-size: 2.5rem !important;
-  }
-
-  h3 {
-    font-size: 1.8rem !important;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr !important;
-    text-align: center;
-  }
-
-  .hero-btns {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero-btns button,
-  .hero-btns a {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .nav-links {
-    display: none !important;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero-artwork {
-    display: none !important;
-  }
-
-  .grid-responsive {
-    gap: 2rem !important;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --section-padding: 60px 1rem;
-  }
-
-  .glass-card {
-    padding: 1.5rem !important;
-  }
 }
 
 /* --- Utilities --- */

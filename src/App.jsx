@@ -359,14 +359,14 @@ const About = () => {
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
               Passionate about building scalable applications and solving real-world problems using modern technologies. I thrive in competitive environments like hackathons and am always looking to push the boundaries of technical innovation.
             </p>
-            <div style={{ display: 'flex', gap: '3rem', marginTop: '3rem' }}>
+            <div className="about-stats">
               <div style={{ borderLeft: '4px solid var(--neon-blue)', paddingLeft: '1.5rem' }}>
-                <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>8.7<span style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>/10</span></div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 700 }}>CGPA ACROSS 5 SEMESTERS</div>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, color: 'var(--text-primary)' }}>8.7<span style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>/10</span></div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 700 }}>CGPA ACROSS 5 SEMESTERS</div>
               </div>
               <div style={{ borderLeft: '4px solid var(--neon-purple)', paddingLeft: '1.5rem' }}>
-                <div style={{ fontSize: '2.5rem', fontWeight: 900, color: 'var(--text-primary)' }}>100<span style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>%</span></div>
-                <div style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', fontWeight: 700 }}>DEDICATION TO INNOVATION</div>
+                <div style={{ fontSize: 'clamp(2rem, 4vw, 2.5rem)', fontWeight: 900, color: 'var(--text-primary)' }}>100<span style={{ fontSize: '1rem', color: 'var(--text-secondary)' }}>%</span></div>
+                <div style={{ fontSize: '0.8rem', color: 'var(--text-secondary)', fontWeight: 700 }}>DEDICATION TO INNOVATION</div>
               </div>
             </div>
           </div>
@@ -401,7 +401,7 @@ const Skills = () => {
   return (
     <section id="skills">
       <SectionHeading subtitle="Expertise">Technical Arsenal</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '2.5rem' }}>
         {groups.map((group, i) => (
           <SectionReveal key={i} delay={i * 0.1}>
             <motion.div
@@ -572,7 +572,7 @@ const Achievements = () => {
   return (
     <section id="achievements">
       <SectionHeading subtitle="Recognition">Global Achievements</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '3rem' }}>
         {items.map((item, i) => (
           <SectionReveal key={i} delay={i * 0.1}>
             <motion.div
