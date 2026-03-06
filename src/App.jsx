@@ -220,7 +220,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  const titles = ["Software Developer", "Java Developer", "React Developer", "Professional Coder"];
+  const titles = ["Web Developer", "Java Developer", "AI Learner", "Problem Solver"];
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -258,7 +258,7 @@ const Hero = () => {
             <span style={{ color: 'var(--neon-blue)' }}>&gt;</span> {text}<span style={{ borderRight: '4px solid var(--neon-cyan)', animation: 'blink 1s infinite' }}></span>
           </div>
           <p style={{ maxWidth: '600px', color: 'var(--text-secondary)', marginBottom: '3.5rem', fontSize: '1.25rem', lineHeight: 1.6, marginInline: 'auto' }}>
-            "Building intelligent web applications and innovative digital solutions."
+            "I build smart websites and apps that help solve problems using modern tools."
           </p>
           <div className="hero-btns" style={{ display: 'flex', gap: '2rem' }}>
             <motion.button
@@ -354,10 +354,10 @@ const About = () => {
           <div className="glass-card" style={{ padding: 'clamp(2rem, 5vw, 4rem)', borderRadius: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '200px', height: '200px', background: 'var(--neon-purple)', opacity: 0.1, filter: 'blur(60px)' }}></div>
             <p style={{ fontSize: '1.4rem', color: 'var(--text-primary)', marginBottom: '2rem', lineHeight: 1.7, fontWeight: 500 }}>
-              Computer Science and Data Science student with strong foundations in <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java, React, and Web Technologies</span>.
+              I'm a Computer Science student who loves building software using <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java and React</span>.
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Passionate about building scalable applications and solving real-world problems using modern technologies. I thrive in competitive environments like hackathons and am always looking to push the boundaries of technical innovation.
+              I enjoy making apps that use data and AI to solve real problems. I also like joining coding competitions to learn new things and build cool projects quickly.
             </p>
             <div className="about-stats">
               <div style={{ borderLeft: '4px solid var(--neon-blue)', paddingLeft: '1.5rem' }}>
@@ -393,9 +393,9 @@ const About = () => {
 
 const Skills = () => {
   const groups = [
-    { title: "Languages", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)', glow: 'rgba(56, 189, 248, 0.4)' },
-    { title: "Web Mastery", skills: ["React", "JavaScript", "Vite"], icon: <Layers />, color: 'var(--neon-purple)', glow: 'rgba(139, 92, 246, 0.4)' },
-    { title: "Data Systems", skills: ["MySQL", "JDBC"], icon: <Database />, color: 'var(--neon-cyan)', glow: 'rgba(34, 211, 238, 0.4)' },
+    { title: "Programming", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)', glow: 'rgba(56, 189, 248, 0.4)' },
+    { title: "Web Design", skills: ["React", "JavaScript", "HTML/CSS"], icon: <Layers />, color: 'var(--neon-purple)', glow: 'rgba(139, 92, 246, 0.4)' },
+    { title: "Tools", skills: ["Git", "GitHub", "MySQL"], icon: <Database />, color: 'var(--neon-cyan)', glow: 'rgba(34, 211, 238, 0.4)' },
   ];
 
   return (
@@ -446,22 +446,22 @@ const Skills = () => {
 const Projects = () => {
   const list = [
     {
-      title: "AgriTech Smart Farming",
-      problem: "Farmers struggle with unpredictable crop planning and limited market reach.",
-      solution: "An AI-powered dashboard offering predictive analytics and direct consumer connections.",
-      impact: "Optimized crop yields and increased farmer revenue by providing data-driven decision tools.",
-      tech: ["React", "JavaScript", "Vite"],
+      title: "AgriTech Farming App",
+      problem: "Farmers find it hard to plan crops and reach markets.",
+      solution: "A simple website that uses data to help farmers choose the best crops.",
+      impact: "Helps farmers make better choices and grow more food.",
+      tech: ["React", "JavaScript", "AI"],
       image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-blue)',
       github: "https://github.com/Hari-2426",
       live: "https://github.com/Hari-2426"
     },
     {
-      title: "Driver Management System",
-      problem: "Logistics companies face inefficiencies in driver tracking and performance evaluation.",
-      solution: "A robust Java-based administration system with real-time analytics and modular tracking.",
-      impact: "Streamlined operational efficiency and improved safety monitoring through automated reporting.",
-      tech: ["Java", "OOP", "MySQL"],
+      title: "Driver Management Tool",
+      problem: "Companies find it hard to keep track of their drivers.",
+      solution: "A professional tool that makes it easy to manage driver records and details.",
+      impact: "Made working with driver data much faster and easier.",
+      tech: ["Java", "MySQL"],
       image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-purple)',
       github: "https://github.com/Hari-2426",
@@ -546,26 +546,26 @@ const Achievements = () => {
     {
       title: "1st Place",
       event: "National Level Hackathon",
-      desc: "Secured top position among 100+ competing teams nationwide. Developed a smart logistics solution.",
+      desc: "Won the top prize among 100 teams from across the country for building a smart delivery tool.",
       color: "#fbbf24",
       glow: "rgba(251, 191, 36, 0.4)",
-      impact: "Credibility: High • Scale: National"
+      impact: "Level: National"
     },
     {
       title: "3rd Place",
       event: "Vibe Coding Hackathon",
-      desc: "Recognized for rapid prototyping and seamless integration of modern web frameworks.",
+      desc: "Won 3rd place for building a website quickly using modern coding tools.",
       color: "#38bdf8",
       glow: "rgba(56, 189, 248, 0.4)",
-      impact: "Credibility: Elite • Scale: Regional"
+      impact: "Level: Regional"
     },
     {
       title: "3rd Place",
       event: "College Tech Fest",
-      desc: "Awarded for technical presentation excellence and innovative software architecture.",
+      desc: "Won an award for creating an innovative software design and a great presentation.",
       color: "#8b5cf6",
       glow: "rgba(139, 92, 246, 0.4)",
-      impact: "Credibility: Strong • Scale: Campus"
+      impact: "Level: Campus"
     },
   ];
 
