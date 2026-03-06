@@ -220,7 +220,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  const titles = ["Web Developer", "Java Developer", "AI Learner", "Problem Solver"];
+  const titles = ["Software Developer", "Java Developer", "React Developer", "Professional Coder"];
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -252,13 +252,13 @@ const Hero = () => {
             HI, I'M HARI HARA NANDAN C V
           </motion.div>
           <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', lineHeight: 0.9, marginBottom: '2rem', fontFamily: 'Outfit', fontWeight: 900 }}>
-            Building <span className="gradient-text">Future</span> <br />Digital Assets.
+            Building <span className="gradient-text">Smart</span> <br />Apps & Tools.
           </h1>
           <div style={{ height: '3rem', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-primary)', fontWeight: 800, marginBottom: '2.5rem', fontFamily: 'Outfit' }}>
             <span style={{ color: 'var(--neon-blue)' }}>&gt;</span> {text}<span style={{ borderRight: '4px solid var(--neon-cyan)', animation: 'blink 1s infinite' }}></span>
           </div>
           <p style={{ maxWidth: '600px', color: 'var(--text-secondary)', marginBottom: '3.5rem', fontSize: '1.25rem', lineHeight: 1.6, marginInline: 'auto' }}>
-            "I build smart websites and apps that help solve problems using modern tools."
+            "I build easy-to-use websites and smart apps that solve real problems."
           </p>
           <div className="hero-btns" style={{ display: 'flex', gap: '2rem' }}>
             <motion.button
@@ -267,7 +267,7 @@ const Hero = () => {
               style={{ padding: '1.3rem 2.5rem', background: 'var(--neon-blue)', color: 'var(--bg-dark)', border: 'none', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 800, fontSize: '1.1rem' }}
               onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
             >
-              View Projects
+              See My Projects
             </motion.button>
             <motion.a
               href="/Hari Hara Nandan C V.pdf"
@@ -277,7 +277,7 @@ const Hero = () => {
               className="glass"
               style={{ padding: '1.3rem 2.5rem', color: 'white', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 700, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
             >
-              Resume <Download size={20} />
+              Get Resume <Download size={20} />
             </motion.a>
           </div>
         </motion.div>
@@ -354,10 +354,10 @@ const About = () => {
           <div className="glass-card" style={{ padding: 'clamp(2rem, 5vw, 4rem)', borderRadius: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '200px', height: '200px', background: 'var(--neon-purple)', opacity: 0.1, filter: 'blur(60px)' }}></div>
             <p style={{ fontSize: '1.4rem', color: 'var(--text-primary)', marginBottom: '2rem', lineHeight: 1.7, fontWeight: 500 }}>
-              I'm a Computer Science student who loves building software using <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java and React</span>.
+              Computer Science and Data Science student with strong foundations in <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java, React, and Web Technologies</span>.
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              I enjoy making apps that use data and AI to solve real problems. I also like joining coding competitions to learn new things and build cool projects quickly.
+              Passionate about building scalable applications and solving real-world problems using modern technologies. I thrive in competitive environments like hackathons and am always looking to push the boundaries of technical innovation.
             </p>
             <div className="about-stats">
               <div style={{ borderLeft: '4px solid var(--neon-blue)', paddingLeft: '1.5rem' }}>
@@ -393,14 +393,14 @@ const About = () => {
 
 const Skills = () => {
   const groups = [
-    { title: "Programming", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)', glow: 'rgba(56, 189, 248, 0.4)' },
-    { title: "Web Design", skills: ["React", "JavaScript", "HTML/CSS"], icon: <Layers />, color: 'var(--neon-purple)', glow: 'rgba(139, 92, 246, 0.4)' },
-    { title: "Tools", skills: ["Git", "GitHub", "MySQL"], icon: <Database />, color: 'var(--neon-cyan)', glow: 'rgba(34, 211, 238, 0.4)' },
+    { title: "Languages", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)', glow: 'rgba(56, 189, 248, 0.4)' },
+    { title: "Web Tools", skills: ["React", "JavaScript", "Vite"], icon: <Layers />, color: 'var(--neon-purple)', glow: 'rgba(139, 92, 246, 0.4)' },
+    { title: "Tools & Apps", skills: ["VS Code", "Eclipse", "Antigravity", "MySQL", "JDBC"], icon: <Database />, color: 'var(--neon-cyan)', glow: 'rgba(34, 211, 238, 0.4)' },
   ];
 
   return (
     <section id="skills">
-      <SectionHeading subtitle="Expertise">Technical Arsenal</SectionHeading>
+      <SectionHeading subtitle="My Skills">Technical Tools</SectionHeading>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 350px), 1fr))', gap: '2.5rem' }}>
         {groups.map((group, i) => (
           <SectionReveal key={i} delay={i * 0.1}>
@@ -446,32 +446,32 @@ const Skills = () => {
 const Projects = () => {
   const list = [
     {
-      title: "AgriTech Farming App",
-      problem: "Farmers find it hard to plan crops and reach markets.",
-      solution: "A simple website that uses data to help farmers choose the best crops.",
-      impact: "Helps farmers make better choices and grow more food.",
-      tech: ["React", "JavaScript", "AI"],
+      title: "AgriTech Smart Farming",
+      problem: "Farmers find it hard to plan crops and sell their produce.",
+      solution: "A smart website that uses AI to give crop advice and connect farmers to buyers.",
+      impact: "Helps farmers grow better crops and earn more money through data.",
+      tech: ["React", "JavaScript", "Vite"],
       image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-blue)',
-      github: "https://github.com/Hari-2426",
-      live: "https://github.com/Hari-2426"
+      github: "https://github.com/cvhariharanandan/AgriTech",
+      live: "https://smart-farming-rgm.vercel.app/"
     },
     {
-      title: "Driver Management Tool",
-      problem: "Companies find it hard to keep track of their drivers.",
-      solution: "A professional tool that makes it easy to manage driver records and details.",
-      impact: "Made working with driver data much faster and easier.",
-      tech: ["Java", "MySQL"],
+      title: "Thomas Travels Manager",
+      problem: "Travel companies find it difficult to manage drivers and schedules.",
+      solution: "An easy tool built with Java to track and manage driver performance.",
+      impact: "Makes it simple to organize work and keep everything running smoothly.",
+      tech: ["Java", "OOP", "MySQL"],
       image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-purple)',
-      github: "https://github.com/Hari-2426",
-      live: "https://github.com/Hari-2426"
+      github: "https://github.com/Hari-2426/Java-Travels-Mini-Project/tree/master",
+      live: "https://github.com/Hari-2426/Java-Travels-Mini-Project/tree/master"
     }
   ];
 
   return (
     <section id="projects">
-      <SectionHeading subtitle="Success Stories">Premium Projects</SectionHeading>
+      <SectionHeading subtitle="My Work">Featured Projects</SectionHeading>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 550px), 1fr))', gap: '4rem' }}>
         {list.map((p, i) => (
           <SectionReveal key={i} delay={i * 0.2}>
@@ -497,17 +497,17 @@ const Projects = () => {
 
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginBottom: '2.5rem' }}>
                   <div style={{ background: 'rgba(56, 189, 248, 0.03)', padding: '1.2rem', borderRadius: '1.2rem', borderLeft: '3px solid var(--neon-blue)' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-blue)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>The Problem</div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-blue)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>The Issue</div>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5 }}>{p.problem}</p>
                   </div>
                   <div style={{ background: 'rgba(139, 92, 246, 0.03)', padding: '1.2rem', borderRadius: '1.2rem', borderLeft: '3px solid var(--neon-purple)' }}>
-                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-purple)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>The Solution</div>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-purple)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>How I Fixed It</div>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5 }}>{p.solution}</p>
                   </div>
                 </div>
 
                 <div style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '2.5rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                  <Star size={18} style={{ color: '#fbbf24' }} fill="#fbbf24" /> IMPACT: <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>{p.impact}</span>
+                  <Star size={18} style={{ color: '#fbbf24' }} fill="#fbbf24" /> RESULTS: <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>{p.impact}</span>
                 </div>
 
                 <div style={{ display: 'flex', gap: '1.2rem' }}>
@@ -517,7 +517,7 @@ const Projects = () => {
                     whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(56, 189, 248, 0.3)' }}
                     style={{ flex: 1.5, padding: '1.1rem', background: 'var(--neon-blue)', color: '#020617', borderRadius: '1.2rem', fontWeight: 800, fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textDecoration: 'none' }}
                   >
-                    <Rocket size={18} /> LIVE DEMO
+                    <Rocket size={18} /> OPEN APP
                   </motion.a>
                   <motion.a
                     href={p.github}
@@ -526,7 +526,7 @@ const Projects = () => {
                     className="glass"
                     style={{ flex: 1, padding: '1.1rem', borderRadius: '1.2rem', fontWeight: 700, fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textDecoration: 'none', color: 'white' }}
                   >
-                    <Github size={18} /> GITHUB
+                    <Github size={18} /> CODE
                   </motion.a>
                 </div>
               </div>
@@ -541,31 +541,32 @@ const Projects = () => {
   );
 };
 
+
 const Achievements = () => {
   const items = [
     {
       title: "1st Place",
       event: "National Level Hackathon",
-      desc: "Won the top prize among 100 teams from across the country for building a smart delivery tool.",
+      desc: "Secured top position among 100+ competing teams nationwide. Developed a smart logistics solution.",
       color: "#fbbf24",
       glow: "rgba(251, 191, 36, 0.4)",
-      impact: "Level: National"
+      impact: "Credibility: High • Scale: National"
     },
     {
       title: "3rd Place",
       event: "Vibe Coding Hackathon",
-      desc: "Won 3rd place for building a website quickly using modern coding tools.",
+      desc: "Recognized for rapid prototyping and seamless integration of modern web frameworks.",
       color: "#38bdf8",
       glow: "rgba(56, 189, 248, 0.4)",
-      impact: "Level: Regional"
+      impact: "Credibility: Elite • Scale: Regional"
     },
     {
       title: "3rd Place",
       event: "College Tech Fest",
-      desc: "Won an award for creating an innovative software design and a great presentation.",
+      desc: "Awarded for technical presentation excellence and innovative software architecture.",
       color: "#8b5cf6",
       glow: "rgba(139, 92, 246, 0.4)",
-      impact: "Level: Campus"
+      impact: "Credibility: Strong • Scale: Campus"
     },
   ];
 
@@ -613,9 +614,9 @@ const Achievements = () => {
 const Contact = () => {
   const [sent, setSent] = useState(false);
   const contactLinks = [
-    { icon: <Mail size={24} />, label: "Email", value: "vedavyas2410@gmail.com", href: "mailto:vedavyas2410@gmail.com", color: 'var(--neon-blue)' },
-    { icon: <Linkedin size={24} />, label: "LinkedIn", value: "hari-hara-nandan-cv-608240354", href: "https://linkedin.com/in/hari-hara-nandan-cv-608240354", color: 'var(--neon-purple)' },
-    { icon: <Github size={24} />, label: "GitHub", value: "Hari-2426", href: "https://github.com/Hari-2426", color: 'var(--neon-cyan)' },
+    { icon: <Mail size={24} />, label: "Email", value: "haricv@gmail.com", href: "mailto:haricv@gmail.com", color: 'var(--neon-blue)' },
+    { icon: <Linkedin size={24} />, label: "LinkedIn", value: "cv-hari-hara-nandan", href: "https://linkedin.com/in/cv-hari-hara-nandan", color: 'var(--neon-purple)' },
+    { icon: <Github size={24} />, label: "GitHub", value: "cvhariharanandan", href: "https://github.com/cvhariharanandan", color: 'var(--neon-cyan)' },
     { icon: <Phone size={24} />, label: "Phone", value: "+91 83094 45394", href: "tel:+918309445394", color: 'var(--neon-blue)' }
   ];
 
@@ -726,9 +727,9 @@ export default function App() {
             <div style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: 'Outfit', marginBottom: '2rem' }} className="gradient-text">HHN</div>
             <p style={{ color: 'var(--text-secondary)', fontWeight: 700, letterSpacing: '0.2rem' }}>ENGINEERING THE FUTURE © {new Date().getFullYear()}</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '3rem', color: 'var(--text-secondary)' }}>
-              <a href="https://github.com/Hari-2426" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>GITHUB</a>
-              <a href="https://linkedin.com/in/hari-hara-nandan-cv-608240354" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINKEDIN</a>
-              <a href="mailto:vedavyas2410@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>EMAIL</a>
+              <a href="https://github.com/cvhariharanandan" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>GITHUB</a>
+              <a href="https://linkedin.com/in/cv-hari-hara-nandan" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINKEDIN</a>
+              <a href="mailto:haricv@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>EMAIL</a>
             </div>
             <div style={{ marginTop: '3rem', color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>
               Built for Hari Hara Nandan C V • React • Vite • Cinematic Brilliance.
