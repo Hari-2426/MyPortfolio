@@ -5,7 +5,7 @@
 [![Framer Motion](https://img.shields.io/badge/Framer_Motion-0055FF?style=for-the-badge&logo=framer&logoColor=white)](https://www.framer.com/motion/)
 [![Lucide Icons](https://img.shields.io/badge/Lucide_Icons-FF0080?style=for-the-badge&logo=lucide&logoColor=white)](https://lucide.dev/)
 
-An ultra-modern, cinematic, and professional developer portfolio website built for **Hari Hara Nandan C V**. Designed with a futuristic UI, glassmorphism aesthetics, and high-performance animations to showcase software development expertise and AI-driven innovation.
+An ultra-modern, cinematic, and professional developer portfolio website built for **Hari Hara Nandan C V**. Designed with a futuristic UI, glassmorphism aesthetics, and high-performance animations to showcase software development expertise and innovative web solutions.
 
 ---
 

@@ -217,7 +217,7 @@ const Navbar = () => {
 };
 
 const Hero = () => {
-  const titles = ["Software Developer", "Java Developer", "React Developer", "AI Enthusiast"];
+  const titles = ["Software Developer", "Java Developer", "React Developer", "Professional Coder"];
   const [index, setIndex] = useState(0);
   const [text, setText] = useState('');
   const [isDeleting, setIsDeleting] = useState(false);
@@ -351,10 +351,10 @@ const About = () => {
           <div className="glass-card" style={{ padding: '4rem', borderRadius: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '200px', height: '200px', background: 'var(--neon-purple)', opacity: 0.1, filter: 'blur(60px)' }}></div>
             <p style={{ fontSize: '1.4rem', color: 'var(--text-primary)', marginBottom: '2rem', lineHeight: 1.7, fontWeight: 500 }}>
-              Computer Science and Data Science student with strong foundations in <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java, React, and Machine Learning</span>.
+              Computer Science and Data Science student with strong foundations in <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java, React, and Web Technologies</span>.
             </p>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem', lineHeight: 1.8, marginBottom: '2rem' }}>
-              Passionate about building scalable applications and solving real-world problems using modern technologies. I thrive in competitive environments like hackathons and am always looking to push the boundaries of AI integration in web tools.
+              Passionate about building scalable applications and solving real-world problems using modern technologies. I thrive in competitive environments like hackathons and am always looking to push the boundaries of technical innovation.
             </p>
             <div style={{ display: 'flex', gap: '3rem', marginTop: '3rem' }}>
               <div style={{ borderLeft: '4px solid var(--neon-blue)', paddingLeft: '1.5rem' }}>
@@ -393,7 +393,6 @@ const Skills = () => {
     { title: "Languages", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)' },
     { title: "Web Mastery", skills: ["React", "JavaScript", "Vite"], icon: <Layers />, color: 'var(--neon-purple)' },
     { title: "Data Systems", skills: ["MySQL", "JDBC"], icon: <Database />, color: 'var(--neon-cyan)' },
-    { title: "AI / ML", skills: ["Machine Learning", "Linear Regression", "Random Forest"], icon: <CpuIcon />, color: '#fbbf24' },
   ];
 
   return (
