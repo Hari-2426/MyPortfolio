@@ -113,10 +113,6 @@ section {
     display: none !important;
   }
 
-  #terminal {
-    padding-bottom: 5rem !important;
-  }
-
   .grid-responsive {
     gap: 2rem !important;
   }
