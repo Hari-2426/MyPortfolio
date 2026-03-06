@@ -614,9 +614,9 @@ const Achievements = () => {
 const Contact = () => {
   const [sent, setSent] = useState(false);
   const contactLinks = [
-    { icon: <Mail size={24} />, label: "Email", value: "haricv@gmail.com", href: "mailto:haricv@gmail.com", color: 'var(--neon-blue)' },
-    { icon: <Linkedin size={24} />, label: "LinkedIn", value: "cv-hari-hara-nandan", href: "https://linkedin.com/in/cv-hari-hara-nandan", color: 'var(--neon-purple)' },
-    { icon: <Github size={24} />, label: "GitHub", value: "cvhariharanandan", href: "https://github.com/cvhariharanandan", color: 'var(--neon-cyan)' },
+    { icon: <Mail size={24} />, label: "Email", value: "vedavyas2410@gmail.com", href: "mailto:vedavyas2410@gmail.com", color: 'var(--neon-blue)' },
+    { icon: <Linkedin size={24} />, label: "LinkedIn", value: "hari-hara-nandan-cv-608240354", href: "https://linkedin.com/in/hari-hara-nandan-cv-608240354", color: 'var(--neon-purple)' },
+    { icon: <Github size={24} />, label: "GitHub", value: "Hari-2426", href: "https://github.com/Hari-2426", color: 'var(--neon-cyan)' },
     { icon: <Phone size={24} />, label: "Phone", value: "+91 83094 45394", href: "tel:+918309445394", color: 'var(--neon-blue)' }
   ];
 
@@ -727,9 +727,9 @@ export default function App() {
             <div style={{ fontSize: '2.5rem', fontWeight: 900, fontFamily: 'Outfit', marginBottom: '2rem' }} className="gradient-text">HHN</div>
             <p style={{ color: 'var(--text-secondary)', fontWeight: 700, letterSpacing: '0.2rem' }}>ENGINEERING THE FUTURE © {new Date().getFullYear()}</p>
             <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', marginTop: '3rem', color: 'var(--text-secondary)' }}>
-              <a href="https://github.com/cvhariharanandan" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>GITHUB</a>
-              <a href="https://linkedin.com/in/cv-hari-hara-nandan" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINKEDIN</a>
-              <a href="mailto:haricv@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>EMAIL</a>
+              <a href="https://github.com/Hari-2426" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>GITHUB</a>
+              <a href="https://linkedin.com/in/hari-hara-nandan-cv-608240354" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'none' }}>LINKEDIN</a>
+              <a href="mailto:vedavyas2410@gmail.com" style={{ color: 'inherit', textDecoration: 'none' }}>EMAIL</a>
             </div>
             <div style={{ marginTop: '3rem', color: 'rgba(255,255,255,0.2)', fontSize: '0.8rem' }}>
               Built for Hari Hara Nandan C V • React • Vite • Cinematic Brilliance.
