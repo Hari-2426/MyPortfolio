@@ -47,11 +47,74 @@ section {
   max-width: 1300px;
   margin: 0 auto;
   position: relative;
+  overflow: hidden;
+}
+
+/* --- Responsive Layout Utilities --- */
+
+.grid-responsive {
+  display: grid;
+  grid-template-columns: var(--grid-cols, 1fr 1fr);
+  gap: var(--grid-gap, 4rem);
+  align-items: center;
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-padding: 100px 2rem;
+  }
+
+  .grid-responsive {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
 }
 
 @media (max-width: 768px) {
-  section {
-    padding: 80px 1.5rem;
+  :root {
+    --section-padding: 80px 1.5rem;
+  }
+
+  h1 {
+    font-size: 3rem !important;
+  }
+
+  h2 {
+    font-size: 2.5rem !important;
+  }
+
+  h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+    text-align: center;
+  }
+
+  .hero-btns {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-btns button,
+  .hero-btns a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none !important;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --section-padding: 60px 1rem;
+  }
+
+  .glass-card {
+    padding: 2rem !important;
   }
 }
 

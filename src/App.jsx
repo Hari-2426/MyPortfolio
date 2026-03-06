@@ -176,7 +176,8 @@ const Navbar = () => {
         alignItems: 'center',
         borderRadius: '2rem',
         border: '1px solid rgba(255,255,255,0.08)',
-        transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)'
+        transition: 'all 0.5s cubic-bezier(0.16, 1, 0.3, 1)',
+        backdropFilter: 'blur(20px)'
       }}>
         <div style={{ padding: '0 1rem', fontSize: '1.4rem', fontWeight: 900, fontFamily: 'Outfit', cursor: 'pointer' }} className="gradient-text" onClick={() => window.scrollTo(0, 0)}>HHN</div>
         <div className="nav-links">
@@ -190,6 +191,9 @@ const Navbar = () => {
               {item}
             </a>
           ))}
+        </div>
+        <div className="mobile-menu-btn" style={{ display: 'none' }}>
+          {/* Add mobile toggle if needed, but for now we hide nav info on mobile via CSS */}
         </div>
       </nav>
       <style>{`
@@ -210,7 +214,6 @@ const Navbar = () => {
           transform: translateX(-50%); width: 0.3rem; height: 0.3rem; 
           background: var(--neon-blue); border-radius: 50%; box-shadow: 0 0 10px var(--neon-blue);
         }
-        @media (max-width: 768px) { .nav-links { display: none; } }
       `}</style>
     </>
   );
@@ -240,28 +243,28 @@ const Hero = () => {
   }, [text, isDeleting, index]);
 
   return (
-    <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative' }}>
+    <section id="home" style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', position: 'relative', paddingTop: '8rem' }}>
       <div style={{ position: 'absolute', top: '10%', right: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%)', filter: 'blur(60px)', zIndex: 0 }}></div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1.3fr) 1fr', gap: '4rem', alignItems: 'center', width: '100%', zIndex: 1 }}>
+      <div className="grid-responsive hero-grid" style={{ "--grid-cols": 'minmax(0, 1.3fr) 1fr', width: '100%', zIndex: 1 }}>
         <motion.div initial={{ opacity: 0, x: -50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1 }}>
           <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} style={{ color: 'var(--neon-cyan)', fontWeight: 700, letterSpacing: '0.2em', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.8rem' }}>
-            <span style={{ width: '40px', height: '2px', background: 'var(--neon-cyan)' }}></span>
+            <span style={{ width: '40px', height: '2px', background: 'var(--neon-cyan)' }} className="hide-mobile"></span>
             HI, I'M HARI HARA NANDAN C V
           </motion.div>
           <h1 style={{ fontSize: 'clamp(3.5rem, 8vw, 6.5rem)', lineHeight: 0.9, marginBottom: '2rem', fontFamily: 'Outfit', fontWeight: 900 }}>
             Building <span className="gradient-text">Future</span> <br />Digital Assets.
           </h1>
-          <div style={{ height: '3rem', fontSize: '2.5rem', color: 'var(--text-primary)', fontWeight: 800, marginBottom: '2.5rem', fontFamily: 'Outfit' }}>
+          <div style={{ height: '3rem', fontSize: 'clamp(1.5rem, 4vw, 2.5rem)', color: 'var(--text-primary)', fontWeight: 800, marginBottom: '2.5rem', fontFamily: 'Outfit' }}>
             <span style={{ color: 'var(--neon-blue)' }}>&gt;</span> {text}<span style={{ borderRight: '4px solid var(--neon-cyan)', animation: 'blink 1s infinite' }}></span>
           </div>
-          <p style={{ maxWidth: '600px', color: 'var(--text-secondary)', marginBottom: '3.5rem', fontSize: '1.25rem', lineHeight: 1.6 }}>
+          <p style={{ maxWidth: '600px', color: 'var(--text-secondary)', marginBottom: '3.5rem', fontSize: '1.25rem', lineHeight: 1.6, marginInline: 'auto' }}>
             "Building intelligent web applications and innovative digital solutions."
           </p>
-          <div style={{ display: 'flex', gap: '2rem' }}>
+          <div className="hero-btns" style={{ display: 'flex', gap: '2rem' }}>
             <motion.button
               whileHover={{ scale: 1.05, boxShadow: '0 0 30px rgba(56, 189, 248, 0.5)' }}
               whileTap={{ scale: 0.95 }}
-              style={{ padding: '1.3rem 3.5rem', background: 'var(--neon-blue)', color: 'var(--bg-dark)', border: 'none', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 800, fontSize: '1.1rem' }}
+              style={{ padding: '1.3rem 2.5rem', background: 'var(--neon-blue)', color: 'var(--bg-dark)', border: 'none', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 800, fontSize: '1.1rem' }}
               onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })}
             >
               View Projects
@@ -272,7 +275,7 @@ const Hero = () => {
               whileHover={{ scale: 1.05, background: 'rgba(255,255,255,0.05)' }}
               whileTap={{ scale: 0.95 }}
               className="glass"
-              style={{ padding: '1.3rem 3.5rem', color: 'white', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 700, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
+              style={{ padding: '1.3rem 2.5rem', color: 'white', borderRadius: '1.2rem', cursor: 'pointer', fontWeight: 700, fontSize: '1.1rem', display: 'flex', alignItems: 'center', gap: '0.8rem', textDecoration: 'none' }}
             >
               Resume <Download size={20} />
             </motion.a>
@@ -346,9 +349,9 @@ const About = () => {
   return (
     <section id="about">
       <SectionHeading subtitle="Profile">About Me</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '5rem', alignItems: 'center' }}>
+      <div className="grid-responsive" style={{ "--grid-cols": '1.2fr 1fr' }}>
         <SectionReveal>
-          <div className="glass-card" style={{ padding: '4rem', borderRadius: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
+          <div className="glass-card" style={{ padding: 'clamp(2rem, 5vw, 4rem)', borderRadius: '3rem', position: 'relative', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.08)' }}>
             <div style={{ position: 'absolute', bottom: '-50px', right: '-50px', width: '200px', height: '200px', background: 'var(--neon-purple)', opacity: 0.1, filter: 'blur(60px)' }}></div>
             <p style={{ fontSize: '1.4rem', color: 'var(--text-primary)', marginBottom: '2rem', lineHeight: 1.7, fontWeight: 500 }}>
               Computer Science and Data Science student with strong foundations in <span style={{ color: 'var(--neon-blue)', fontWeight: 800 }}>Java, React, and Web Technologies</span>.
@@ -390,35 +393,52 @@ const About = () => {
 
 const Skills = () => {
   const groups = [
-    { title: "Languages", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)' },
-    { title: "Web Mastery", skills: ["React", "JavaScript", "Vite"], icon: <Layers />, color: 'var(--neon-purple)' },
-    { title: "Data Systems", skills: ["MySQL", "JDBC"], icon: <Database />, color: 'var(--neon-cyan)' },
+    { title: "Languages", skills: ["Java", "SQL"], icon: <Terminal />, color: 'var(--neon-blue)', glow: 'rgba(56, 189, 248, 0.4)' },
+    { title: "Web Mastery", skills: ["React", "JavaScript", "Vite"], icon: <Layers />, color: 'var(--neon-purple)', glow: 'rgba(139, 92, 246, 0.4)' },
+    { title: "Data Systems", skills: ["MySQL", "JDBC"], icon: <Database />, color: 'var(--neon-cyan)', glow: 'rgba(34, 211, 238, 0.4)' },
   ];
 
   return (
     <section id="skills">
       <SectionHeading subtitle="Expertise">Technical Arsenal</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '3rem' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '2.5rem' }}>
         {groups.map((group, i) => (
           <SectionReveal key={i} delay={i * 0.1}>
             <motion.div
-              whileHover={{ y: -15, borderColor: group.color, boxShadow: `0 20px 40px rgba(0,0,0,0.3), 0 0 20px ${group.color}33` }}
-              className="glass-card"
-              style={{ padding: '3rem', height: '100%', border: '1px solid rgba(255,255,255,0.05)' }}
+              whileHover={{ y: -10 }}
+              className="glass-card skill-card"
+              style={{ padding: '3rem', height: '100%', border: '1px solid rgba(255,255,255,0.05)', position: 'relative', overflow: 'hidden' }}
             >
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2.5rem' }}>
-                <div style={{ color: group.color, background: `${group.color}11`, padding: '1rem', borderRadius: '1.2rem' }}>{group.icon}</div>
-                <h3 style={{ fontSize: '1.6rem', fontWeight: 800 }}>{group.title}</h3>
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
-                {group.skills.map((skill, j) => (
-                  <span key={j} style={{ padding: '0.6rem 1.4rem', background: 'rgba(255,255,255,0.03)', color: 'var(--text-secondary)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '2rem', fontSize: '0.95rem', fontWeight: 600 }}>{skill}</span>
-                ))}
+              <div className="card-glow" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', background: `radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), ${group.glow}, transparent 40%)`, opacity: 0, transition: 'opacity 0.5s' }}></div>
+
+              <div style={{ position: 'relative', zIndex: 1 }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                  <div style={{ color: group.color, background: `${group.color}11`, padding: '1.2rem', borderRadius: '1.5rem', boxShadow: `0 0 20px ${group.color}22` }}>
+                    {React.cloneElement(group.icon, { size: 30 })}
+                  </div>
+                  <h3 style={{ fontSize: '1.8rem', fontWeight: 900, fontFamily: 'Outfit' }}>{group.title}</h3>
+                </div>
+
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
+                  {group.skills.map((skill, j) => (
+                    <motion.span
+                      key={j}
+                      whileHover={{ scale: 1.1, color: group.color, borderColor: group.color }}
+                      style={{ padding: '0.8rem 1.6rem', background: 'rgba(255,255,255,0.02)', color: 'var(--text-secondary)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: '1.2rem', fontSize: '1rem', fontWeight: 700, transition: 'all 0.3s' }}
+                    >
+                      {skill}
+                    </motion.span>
+                  ))}
+                </div>
               </div>
             </motion.div>
           </SectionReveal>
         ))}
       </div>
+      <style>{`
+        .skill-card:hover .card-glow { opacity: 0.15; }
+        .skill-card { cursor: crosshair; }
+      `}</style>
     </section>
   );
 };
@@ -427,74 +447,126 @@ const Projects = () => {
   const list = [
     {
       title: "AgriTech Smart Farming",
-      desc: "A high-performance agriculture platform providing predictive insights using ML models to optimize crop yields.",
-      tech: ["React", "JavaScript", "ML"],
-      features: ["AI Recommendation", "Farmer Support", "Data Insights"],
+      problem: "Farmers struggle with unpredictable crop planning and limited market reach.",
+      solution: "An AI-powered dashboard offering predictive analytics and direct consumer connections.",
+      impact: "Optimized crop yields and increased farmer revenue by providing data-driven decision tools.",
+      tech: ["React", "JavaScript", "Vite"],
       image: "https://images.unsplash.com/photo-1592982537447-7440770cbfc9?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-blue)',
-      github: "https://github.com/Hari-2426"
+      github: "https://github.com/Hari-2426",
+      live: "https://github.com/Hari-2426"
     },
     {
       title: "Driver Management System",
-      desc: "Architected a modular Java system for driver logistics, featuring advanced search and performance analytics.",
-      tech: ["Java", "OOP", "Analytics"],
-      features: ["Modular Core", "Search Engine", "User Management"],
+      problem: "Logistics companies face inefficiencies in driver tracking and performance evaluation.",
+      solution: "A robust Java-based administration system with real-time analytics and modular tracking.",
+      impact: "Streamlined operational efficiency and improved safety monitoring through automated reporting.",
+      tech: ["Java", "OOP", "MySQL"],
       image: "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&q=80&w=800",
       color: 'var(--neon-purple)',
-      github: "https://github.com/Hari-2426"
+      github: "https://github.com/Hari-2426",
+      live: "https://github.com/Hari-2426"
     }
   ];
 
   return (
     <section id="projects">
-      <SectionHeading subtitle="Portfolio">Premium Projects</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '5rem' }}>
+      <SectionHeading subtitle="Success Stories">Premium Projects</SectionHeading>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 550px), 1fr))', gap: '4rem' }}>
         {list.map((p, i) => (
           <SectionReveal key={i} delay={i * 0.2}>
             <motion.div
               whileHover={{ y: -20 }}
               className="glass-card"
-              style={{ borderRadius: '3.5rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}
+              style={{ borderRadius: '2.5rem', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.05)', position: 'relative' }}
             >
-              <div style={{ height: '350px', overflow: 'hidden', position: 'relative' }}>
-                <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, #020617)' }}></div>
-                <div style={{ position: 'absolute', top: '2rem', right: '2rem', padding: '0.8rem 1.5rem', background: 'rgba(2, 6, 23, 0.7)', backdropFilter: 'blur(10px)', borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)', color: 'var(--neon-cyan)', fontWeight: 800 }}>LIVE DEMO</div>
-              </div>
-              <div style={{ padding: '4rem' }}>
-                <h3 style={{ fontSize: '2.5rem', marginBottom: '1.5rem', fontFamily: 'Outfit', fontWeight: 900 }}>{p.title}</h3>
-                <p style={{ color: 'var(--text-secondary)', marginBottom: '2.5rem', fontSize: '1.2rem', lineHeight: 1.7 }}>{p.desc}</p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem', marginBottom: '3rem' }}>
-                  {p.tech.map((t, j) => (
-                    <span key={j} style={{ fontSize: '0.85rem', padding: '0.5rem 1.5rem', background: `${p.color}11`, color: p.color, borderRadius: '1rem', border: `1px solid ${p.color}22`, fontWeight: 700 }}>{t}</span>
-                  ))}
+              <div style={{ height: '300px', overflow: 'hidden', position: 'relative' }}>
+                <img src={p.image} alt={p.title} style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.5s' }} className="project-img" />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to bottom, transparent, rgba(2, 6, 23, 0.9))' }}></div>
+                <div style={{ position: 'absolute', bottom: '1.5rem', left: '2rem', right: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', gap: '0.8rem' }}>
+                    {p.tech.map((t, j) => (
+                      <span key={j} style={{ fontSize: '0.7rem', padding: '0.4rem 0.8rem', background: 'rgba(255,255,255,0.05)', backdropFilter: 'blur(10px)', color: 'white', borderRadius: '0.8rem', border: '1px solid rgba(255,255,255,0.1)', fontWeight: 700 }}>{t}</span>
+                    ))}
+                  </div>
                 </div>
-                <div style={{ display: 'flex', gap: '1.5rem' }}>
+              </div>
+
+              <div style={{ padding: '2.5rem' }}>
+                <h3 style={{ fontSize: '2rem', marginBottom: '1.5rem', fontFamily: 'Outfit', fontWeight: 900 }}>{p.title}</h3>
+
+                <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '1.5rem', marginBottom: '2.5rem' }}>
+                  <div style={{ background: 'rgba(56, 189, 248, 0.03)', padding: '1.2rem', borderRadius: '1.2rem', borderLeft: '3px solid var(--neon-blue)' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-blue)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>The Problem</div>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5 }}>{p.problem}</p>
+                  </div>
+                  <div style={{ background: 'rgba(139, 92, 246, 0.03)', padding: '1.2rem', borderRadius: '1.2rem', borderLeft: '3px solid var(--neon-purple)' }}>
+                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--neon-purple)', textTransform: 'uppercase', marginBottom: '0.5rem', letterSpacing: '0.1rem' }}>The Solution</div>
+                    <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5 }}>{p.solution}</p>
+                  </div>
+                </div>
+
+                <div style={{ fontSize: '1.1rem', fontWeight: 700, marginBottom: '2.5rem', color: 'var(--text-primary)', display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                  <Star size={18} style={{ color: '#fbbf24' }} fill="#fbbf24" /> IMPACT: <span style={{ fontWeight: 500, color: 'var(--text-secondary)' }}>{p.impact}</span>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1.2rem' }}>
+                  <motion.a
+                    href={p.live}
+                    target="_blank"
+                    whileHover={{ scale: 1.02, boxShadow: '0 0 30px rgba(56, 189, 248, 0.3)' }}
+                    style={{ flex: 1.5, padding: '1.1rem', background: 'var(--neon-blue)', color: '#020617', borderRadius: '1.2rem', fontWeight: 800, fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textDecoration: 'none' }}
+                  >
+                    <Rocket size={18} /> LIVE DEMO
+                  </motion.a>
                   <motion.a
                     href={p.github}
                     target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    style={{ flex: 1, padding: '1.2rem', background: 'var(--neon-blue)', color: 'var(--bg-dark)', border: 'none', borderRadius: '1.2rem', fontWeight: 900, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', cursor: 'pointer', fontSize: '1.1rem', textDecoration: 'none' }}
+                    whileHover={{ scale: 1.02, background: 'rgba(255,255,255,0.05)' }}
+                    className="glass"
+                    style={{ flex: 1, padding: '1.1rem', borderRadius: '1.2rem', fontWeight: 700, fontSize: '1rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', textDecoration: 'none', color: 'white' }}
                   >
-                    <Github /> Source
+                    <Github size={18} /> GITHUB
                   </motion.a>
-                  <motion.button whileHover={{ scale: 1.05 }} className="glass" style={{ flex: 1, padding: '1.2rem', color: 'white', borderRadius: '1.2rem', fontWeight: 800, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.8rem', cursor: 'pointer', fontSize: '1.1rem' }}><Globe /> Details</motion.button>
                 </div>
               </div>
             </motion.div>
           </SectionReveal>
         ))}
       </div>
+      <style>{`
+        .glass-card:hover .project-img { transform: scale(1.1); }
+      `}</style>
     </section>
   );
 };
 
 const Achievements = () => {
   const items = [
-    { title: "1st Place", event: "National Level Hackathon", desc: "Top position among 100+ competing teams national-wide.", color: "#fbbf24" },
-    { title: "3rd Place", event: "Vibe Coding Hackathon", desc: "Rapid prototyping challenge using modern framework integration.", color: "#38bdf8" },
-    { title: "3rd Place", event: "College Tech Fest", desc: "Technical presentation and coding competition excellence.", color: "#8b5cf6" },
+    {
+      title: "1st Place",
+      event: "National Level Hackathon",
+      desc: "Secured top position among 100+ competing teams nationwide. Developed a smart logistics solution.",
+      color: "#fbbf24",
+      glow: "rgba(251, 191, 36, 0.4)",
+      impact: "Credibility: High • Scale: National"
+    },
+    {
+      title: "3rd Place",
+      event: "Vibe Coding Hackathon",
+      desc: "Recognized for rapid prototyping and seamless integration of modern web frameworks.",
+      color: "#38bdf8",
+      glow: "rgba(56, 189, 248, 0.4)",
+      impact: "Credibility: Elite • Scale: Regional"
+    },
+    {
+      title: "3rd Place",
+      event: "College Tech Fest",
+      desc: "Awarded for technical presentation excellence and innovative software architecture.",
+      color: "#8b5cf6",
+      glow: "rgba(139, 92, 246, 0.4)",
+      impact: "Credibility: Strong • Scale: Campus"
+    },
   ];
 
   return (
@@ -503,16 +575,135 @@ const Achievements = () => {
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '3rem' }}>
         {items.map((item, i) => (
           <SectionReveal key={i} delay={i * 0.1}>
-            <motion.div whileHover={{ scale: 1.05 }} className="glass-card" style={{ padding: '3.5rem', textAlign: 'center', position: 'relative' }}>
-              <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ repeat: Infinity, duration: 2 }} style={{ fontSize: '5rem', marginBottom: '2rem' }}>🏆</motion.div>
-              <h3 style={{ fontSize: '2rem', color: item.color, marginBottom: '1rem', fontWeight: 900 }}>{item.title}</h3>
-              <p style={{ fontSize: '1.3rem', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '1rem' }}>{item.event}</p>
-              <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem' }}>{item.desc}</p>
-              <div style={{ position: 'absolute', bottom: i === 0 ? '-20px' : 'auto', top: i !== 0 ? '-20px' : 'auto', left: '50%', transform: 'translateX(-50%)', width: '60%', height: '2px', background: `linear-gradient(to right, transparent, ${item.color}, transparent)` }}></div>
+            <motion.div
+              whileHover={{ y: -15 }}
+              className="glass-card achievement-card"
+              style={{ padding: '4rem', textAlign: 'center', position: 'relative', overflow: 'hidden', border: `1px solid ${item.color}22` }}
+            >
+              <div style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '5px', background: item.color, boxShadow: `0 0 20px ${item.color}` }}></div>
+              <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(circle at center, ${item.glow}, transparent 70%)`, opacity: 0.05 }}></div>
+
+              <motion.div
+                animate={{ y: [0, -10, 0] }}
+                transition={{ repeat: Infinity, duration: 3, ease: 'easeInOut' }}
+                style={{ fontSize: '6rem', marginBottom: '2rem', filter: `drop-shadow(0 0 20px ${item.color}44)` }}
+              >
+                <Trophy size={80} color={item.color} strokeWidth={1.5} />
+              </motion.div>
+
+              <h3 style={{ fontSize: '2.2rem', color: item.color, marginBottom: '0.5rem', fontWeight: 900, fontFamily: 'Outfit' }}>{item.title}</h3>
+              <p style={{ fontSize: '1.4rem', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '1.5rem' }}>{item.event}</p>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.6, marginBottom: '2rem' }}>{item.desc}</p>
+
+              <div style={{ fontSize: '0.8rem', fontWeight: 800, color: item.color, letterSpacing: '0.1rem', textTransform: 'uppercase', background: `${item.color}11`, padding: '0.6rem', borderRadius: '0.8rem', display: 'inline-block' }}>
+                {item.impact}
+              </div>
             </motion.div>
           </SectionReveal>
         ))}
       </div>
+      <style>{`
+        .achievement-card:hover { border-color: inherit !important; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+      `}</style>
+    </section>
+  );
+};
+
+const Terminal = () => {
+  const [input, setInput] = useState('');
+  const [history, setHistory] = useState([
+    { type: 'info', content: 'HHN-OS v1.0.4 - Initializing secure terminal...' },
+    { type: 'info', content: 'Type "help" to see available commands.' }
+  ]);
+  const scrollRef = useRef(null);
+
+  useEffect(() => {
+    if (scrollRef.current) scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+  }, [history]);
+
+  const handleCommand = (e) => {
+    if (e.key === 'Enter') {
+      const cmd = input.toLowerCase().trim();
+      const newHistory = [...history, { type: 'cmd', content: `> ${input}` }];
+
+      switch (cmd) {
+        case 'help':
+          newHistory.push({ type: 'res', content: 'Available commands: projects, skills, contact, clear, about, resume' });
+          break;
+        case 'projects':
+          newHistory.push({ type: 'res', content: '1. AgriTech Smart Farming (React/ML)\n2. Driver Management System (Java/MySQL)' });
+          break;
+        case 'skills':
+          newHistory.push({ type: 'res', content: 'Languages: Java, SQL\nWeb: React, JavaScript, Vite\nData: MySQL, JDBC' });
+          break;
+        case 'contact':
+          newHistory.push({ type: 'res', content: 'Email: vedavyas2410@gmail.com\nLinkedIn: hari-hara-nandan-cv-608240354' });
+          break;
+        case 'about':
+          newHistory.push({ type: 'res', content: 'CS Student | 8.7 CGPA | Hackathon Enthusiast | Building Future Assets.' });
+          break;
+        case 'resume':
+          newHistory.push({ type: 'res', content: 'Downloading transmission data... (Check your browser)' });
+          window.open('/Hari Hara Nandan C V.pdf', '_blank');
+          break;
+        case 'clear':
+          setHistory([{ type: 'info', content: 'Console cleared. Type "help" for commands.' }]);
+          setInput('');
+          return;
+        default:
+          newHistory.push({ type: 'res', content: `Command not found: ${cmd}. Type "help" for a list of valid commands.` });
+      }
+
+      setHistory(newHistory);
+      setInput('');
+    }
+  };
+
+  return (
+    <section id="terminal" style={{ paddingBottom: '10rem' }}>
+      <SectionHeading subtitle="Advanced">Command Interface</SectionHeading>
+      <SectionReveal>
+        <div className="glass-card" style={{
+          background: 'rgba(2, 6, 23, 0.95)',
+          border: '1px solid var(--neon-cyan)33',
+          borderRadius: '1.5rem',
+          padding: '2rem',
+          fontFamily: 'monospace',
+          boxShadow: '0 0 50px rgba(34, 211, 238, 0.1)',
+          maxWidth: '1000px',
+          margin: '0 auto'
+        }}>
+          <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1.5rem', opacity: 0.5 }}>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ff5f56' }}></div>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#ffbd2e' }}></div>
+            <div style={{ width: '12px', height: '12px', borderRadius: '50%', background: '#27c93f' }}></div>
+            <span style={{ fontSize: '0.8rem', marginLeft: '1rem' }}>hhn-os — bash — 80x24</span>
+          </div>
+
+          <div ref={scrollRef} style={{ height: '350px', overflowY: 'auto', marginBottom: '1.5rem', color: 'var(--neon-cyan)', fontSize: '1rem', lineHeight: 1.6 }}>
+            {history.map((line, i) => (
+              <div key={i} style={{
+                marginBottom: '0.5rem',
+                color: line.type === 'cmd' ? 'var(--text-primary)' : line.type === 'res' ? 'var(--neon-blue)' : 'var(--text-secondary)',
+                whiteSpace: 'pre-wrap'
+              }}>
+                {line.content}
+              </div>
+            ))}
+          </div>
+
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <span style={{ color: 'var(--neon-purple)', fontWeight: 900 }}>guest@HHN:~$</span>
+            <input
+              autoFocus
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={handleCommand}
+              style={{ flex: 1, background: 'transparent', border: 'none', color: 'var(--neon-cyan)', fontFamily: 'monospace', outline: 'none', fontSize: '1.1rem' }}
+            />
+          </div>
+        </div>
+      </SectionReveal>
     </section>
   );
 };
@@ -529,10 +720,10 @@ const Contact = () => {
   return (
     <section id="contact" style={{ marginBottom: '5rem' }}>
       <SectionHeading subtitle="Connection">Contact Transmission</SectionHeading>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '5rem' }}>
+      <div className="grid-responsive" style={{ "--grid-cols": '1fr 1.5fr' }}>
         <SectionReveal>
-          <div className="glass-card" style={{ padding: '3rem', height: '100%', display: 'flex', flexDirection: 'column', gap: '2.5rem' }}>
-            <h3 style={{ fontSize: '2.5rem', fontWeight: 900 }}>Let's Build the <span className="gradient-text">Future.</span></h3>
+          <div className="glass-card" style={{ padding: 'clamp(2rem, 5vw, 4rem)', height: '100%', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
+            <h3 style={{ fontSize: 'clamp(1.8rem, 4vw, 2.5rem)', fontWeight: 900 }}>Let's Build the <span className="gradient-text">Future.</span></h3>
             <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.8 }}>My core objective is to leverage AI and software to solve real-world problems. Let's discuss a potential project or collaboration.</p>
 
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -625,6 +816,7 @@ export default function App() {
             <Skills />
             <Projects />
             <Achievements />
+            <Terminal />
             <Contact />
           </main>
 
