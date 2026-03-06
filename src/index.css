@@ -108,13 +108,27 @@ section {
   }
 }
 
+@media (max-width: 768px) {
+  .hero-artwork {
+    display: none !important;
+  }
+
+  #terminal {
+    padding-bottom: 5rem !important;
+  }
+
+  .grid-responsive {
+    gap: 2rem !important;
+  }
+}
+
 @media (max-width: 480px) {
   :root {
     --section-padding: 60px 1rem;
   }
 
   .glass-card {
-    padding: 2rem !important;
+    padding: 1.5rem !important;
   }
 }
 

@@ -609,7 +609,7 @@ const Achievements = () => {
   );
 };
 
-const Terminal = () => {
+const TerminalComponent = () => {
   const [input, setInput] = useState('');
   const [history, setHistory] = useState([
     { type: 'info', content: 'HHN-OS v1.0.4 - Initializing secure terminal...' },
@@ -816,7 +816,7 @@ export default function App() {
             <Skills />
             <Projects />
             <Achievements />
-            <Terminal />
+            <TerminalComponent />
             <Contact />
           </main>
 
